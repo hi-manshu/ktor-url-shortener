@@ -2,6 +2,8 @@
 
 This project is a implementation for creating Short URL using Ktor + Kotlin + MongoDB
 
+![alt text](https://github.com/hi-manshu/ktor-url-shortener/blob/main/art/arch-design-url-short.jpg)
+
 ### Usage
 
 It contains two routes if you want to implement it in Client side.
