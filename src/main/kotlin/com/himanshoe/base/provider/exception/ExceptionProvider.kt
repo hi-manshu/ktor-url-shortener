@@ -4,5 +4,7 @@ interface ExceptionProvider {
 
     fun respondWithNotFoundException(message: String?): Exception
 
+    fun respondWithGenericException(message: String?): Exception
+
     fun respondWithSomethingWentWrongException(): Exception
 }

@@ -9,6 +9,10 @@ class ExceptionProviderImpl : ExceptionProvider {
         return NotFoundException(message)
     }
 
+    override fun respondWithGenericException(message: String?): Exception {
+        return Exception(message)
+    }
+
     override fun respondWithSomethingWentWrongException(): Exception {
         return SomethingWentWrongException()
     }
