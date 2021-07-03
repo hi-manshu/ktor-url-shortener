@@ -42,3 +42,4 @@ cmake-build-*/
 .gradle/*
 .idea
 .gradle
+build
