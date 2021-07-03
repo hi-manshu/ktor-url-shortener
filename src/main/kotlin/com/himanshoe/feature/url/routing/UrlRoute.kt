@@ -31,20 +31,7 @@ fun Application.urlRoutes(domainLocator: DomainLocator, exceptionProvider: Excep
             }
         }
 
-        post<FormUrlLocation> {
-            val params = call.receiveParameters()
-            val url = params["url"] ?: ""
-            if (isValid(url)) {
-                val response =
-                    domainLocator.provideDomainProvider().provideCreateShortUrlUseCase().invoke(url)
-                call.respond(response)
-            } else {
-                call.respond(
-                    HttpStatusCode.BadRequest,
-                    exceptionProvider.respondWithGenericException("Url is not valid!")
-                )
-            }
-        }
+
 
         get<ShortUrlLocation> { request ->
             val shortUrl = request.url

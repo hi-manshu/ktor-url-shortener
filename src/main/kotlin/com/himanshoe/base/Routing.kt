@@ -14,7 +14,7 @@ val exceptionLocator = ExceptionLocator
 fun Application.configureRouting() {
     install(Locations)
     routing {
-        frontendRouting()
+        frontendRouting(domainLocator,exceptionLocator.provideExceptionProvider())
         urlRoutes(domainLocator,exceptionLocator.provideExceptionProvider())
     }
 }
