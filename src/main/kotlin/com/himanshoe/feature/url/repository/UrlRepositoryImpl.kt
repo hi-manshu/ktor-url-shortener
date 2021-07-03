@@ -8,12 +8,21 @@ import io.ktor.http.*
 class UrlRepositoryImpl(private val urlService: UrlService) : UrlRepository {
 
     override suspend fun createShortUrl(originUrl: String): BaseResponse<Any> {
-        val url = urlService.findUrl(originUrl)
+        val url = urlService.findShortUrl(originUrl)
         return if (url != null) {
             SuccessResponse(HttpStatusCode.Found, url)
         } else {
             val newShortUrl = urlService.createShortUrl(originUrl)
             SuccessResponse(HttpStatusCode.Created, newShortUrl)
+        }
+    }
+
+    override suspend fun findOriginalUrl(shortUrl: String): String {
+        val url = urlService.findOriginalUrl(shortUrl)
+        if (url != null) {
+            return url
+        } else {
+            throw Exception("")
         }
     }
 }

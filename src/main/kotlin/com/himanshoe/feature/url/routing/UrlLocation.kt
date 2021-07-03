@@ -9,5 +9,5 @@ class UrlLocation
 
 @KtorExperimentalLocationsAPI
 @Location(UrlEntity.SHORT_URL)
-class ShortUrlLocation
+data class ShortUrlLocation(val url: String)
 

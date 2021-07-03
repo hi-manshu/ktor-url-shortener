@@ -23,12 +23,17 @@ class UrlServiceImpl(private val urlCollection: CoroutineCollection<UrlEntity>) 
         }
     }
 
-    override suspend fun findUrl(url: String): String? {
-        val urlEntity: UrlEntity? = urlCollection.findOne(UrlEntity::originalUrl eq url)
+    override suspend fun findShortUrl(url: String): String? {
+        val urlEntity = urlCollection.findOne(UrlEntity::originalUrl eq url)
         return urlEntity?.shortUrl
     }
 
+    override suspend fun findOriginalUrl(url: String): String? {
+        val urlEntity = urlCollection.findOne(UrlEntity::shortUrl eq url)
+        return urlEntity?.originalUrl
+    }
+
     override suspend fun checkIfUrlIsPresent(url: String): Boolean {
-        return findUrl(url) != null
+        return findShortUrl(url) != null
     }
 }
