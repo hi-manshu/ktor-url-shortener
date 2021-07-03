@@ -8,6 +8,7 @@ data class UrlEntity(
     val userId: String = ObjectId().toString(),
     val originalUrl: String,
     val shortUrl: String,
+    @Transient
     val createdAt: String,
     val urlHitCount: Int = 0
 ) {

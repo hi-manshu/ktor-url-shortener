@@ -13,7 +13,7 @@ class UrlServiceImpl(private val urlCollection: CoroutineCollection<UrlEntity>) 
         val request = UrlEntity(
             originalUrl = url,
             shortUrl = shortUrl,
-            createdAt = Date().toInstant().toString()
+            createdAt = Date().toInstant().toString(),
         )
         val isShortUrlCreated = urlCollection.insertOne(request).wasAcknowledged()
         return if (isShortUrlCreated) {
