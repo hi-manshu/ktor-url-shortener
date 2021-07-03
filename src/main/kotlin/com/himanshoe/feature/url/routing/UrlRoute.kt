@@ -1,15 +1,17 @@
 package com.himanshoe.feature.url.routing
 
+import com.himanshoe.base.provider.exception.ExceptionProvider
 import com.himanshoe.di.DomainLocator
 import com.himanshoe.feature.url.request.UrlRequest
 import com.himanshoe.util.getBodyContent
 import io.ktor.application.*
+import io.ktor.http.*
 import io.ktor.locations.*
 import io.ktor.locations.post
 import io.ktor.response.*
 import io.ktor.routing.*
 
-fun Application.urlRoutes(domainLocator: DomainLocator) {
+fun Application.urlRoutes(domainLocator: DomainLocator, exceptionProvider: ExceptionProvider) {
 
     routing {
         post<UrlLocation> {
@@ -21,7 +23,13 @@ fun Application.urlRoutes(domainLocator: DomainLocator) {
         get<ShortUrlLocation> { request ->
             val shortUrl = request.url
             val response = domainLocator.provideDomainProvider().provideFindShortUrlUseCase().invoke(shortUrl)
-            call.respondRedirect(response)
+            when {
+                response != null -> call.respondRedirect(response)
+                else -> call.respond(
+                    HttpStatusCode.NotFound,
+                    exceptionProvider.respondWithNotFoundException("Url not found!")
+                )
+            }
         }
     }
 }

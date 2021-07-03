@@ -14,6 +14,7 @@ fun main(args: Array<String>): Unit =
 
 
 fun Application.module() {
+    configureStatusPages()
     configureRouting()
     configureSerialization()
 }

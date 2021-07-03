@@ -6,5 +6,5 @@ interface UrlRepository {
 
     suspend fun createShortUrl(originUrl: String): BaseResponse<Any>
 
-    suspend fun findOriginalUrl(shortUrl: String): String
+    suspend fun findOriginalUrl(shortUrl: String): String?
 }
