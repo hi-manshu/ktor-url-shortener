@@ -30,10 +30,19 @@ class UrlServiceImpl(private val urlCollection: CoroutineCollection<UrlEntity>) 
 
     override suspend fun findOriginalUrl(url: String): String? {
         val urlEntity = urlCollection.findOne(UrlEntity::shortUrl eq url)
+        updateCount(urlEntity)
         return urlEntity?.originalUrl
     }
 
     override suspend fun checkIfUrlIsPresent(url: String): Boolean {
         return findShortUrl(url) != null
+    }
+
+    private suspend fun updateCount(urlEntity: UrlEntity?) {
+        urlEntity?.let { entity ->
+            val count = entity.urlHitCount.plus(1)
+            val newEntity = entity.copy(urlHitCount = count)
+            urlCollection.updateOne(UrlEntity::shortUrl eq entity.shortUrl, newEntity)
+        }
     }
 }
