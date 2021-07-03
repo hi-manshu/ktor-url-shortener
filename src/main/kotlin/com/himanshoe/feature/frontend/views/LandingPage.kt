@@ -32,7 +32,7 @@ fun Application.landingPage() {
                         }
 
                         button(
-                            classes = "secondary",
+                            classes = "primary",
                             type = ButtonType.submit,
                         ) {
                             +"Shorten"
@@ -42,5 +42,4 @@ fun Application.landingPage() {
             }
         }
     }
-
 }

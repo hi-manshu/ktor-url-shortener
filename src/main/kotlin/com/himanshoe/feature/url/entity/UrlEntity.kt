@@ -1,6 +1,11 @@
 package com.himanshoe.feature.url.entity
 
+import org.bson.codecs.pojo.annotations.BsonId
+import org.bson.types.ObjectId
+
 data class UrlEntity(
+    @BsonId
+    val userId: String = ObjectId().toString(),
     val originalUrl: String,
     val shortUrl: String,
     val createdAt: String,

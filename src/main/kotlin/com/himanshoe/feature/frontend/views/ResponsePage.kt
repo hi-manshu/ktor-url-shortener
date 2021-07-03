@@ -17,7 +17,6 @@ import kotlinx.html.p
 
 fun Application.responsePage(domainLocator: DomainLocator, exceptionProvider: ExceptionProvider) {
 
-
     routing {
         post<FormUrlLocation> {
             val params = call.receiveParameters()
@@ -42,5 +41,4 @@ fun Application.responsePage(domainLocator: DomainLocator, exceptionProvider: Ex
             }
         }
     }
-
 }
