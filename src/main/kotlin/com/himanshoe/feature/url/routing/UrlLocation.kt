@@ -8,6 +8,10 @@ import io.ktor.locations.*
 class UrlLocation
 
 @KtorExperimentalLocationsAPI
+@Location(UrlEntity.FORM_URL)
+class FormUrlLocation
+
+@KtorExperimentalLocationsAPI
 @Location(UrlEntity.SHORT_URL)
 data class ShortUrlLocation(val url: String)
 

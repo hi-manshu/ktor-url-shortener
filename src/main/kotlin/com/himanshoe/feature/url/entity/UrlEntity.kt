@@ -8,6 +8,7 @@ data class UrlEntity(
 ) {
     companion object {
         const val URL = "/v1/url"
+        const val FORM_URL = "/v1/form"
         const val SHORT_URL = "/{url}"
     }
 }

@@ -9,6 +9,7 @@ import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.locations.*
 import io.ktor.locations.post
+import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 
@@ -21,6 +22,21 @@ fun Application.urlRoutes(domainLocator: DomainLocator, exceptionProvider: Excep
             if (isValid(urlRequest.url)) {
                 val response =
                     domainLocator.provideDomainProvider().provideCreateShortUrlUseCase().invoke(urlRequest.url)
+                call.respond(response)
+            } else {
+                call.respond(
+                    HttpStatusCode.BadRequest,
+                    exceptionProvider.respondWithGenericException("Url is not valid!")
+                )
+            }
+        }
+
+        post<FormUrlLocation> {
+            val params = call.receiveParameters()
+            val url = params["url"] ?: ""
+            if (isValid(url)) {
+                val response =
+                    domainLocator.provideDomainProvider().provideCreateShortUrlUseCase().invoke(url)
                 call.respond(response)
             } else {
                 call.respond(
