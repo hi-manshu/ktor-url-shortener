@@ -1,6 +1,5 @@
 package com.himanshoe.feature.url.repository
 
-import com.himanshoe.base.provider.exception.ExceptionProvider
 import com.himanshoe.feature.url.service.UrlService
 import com.himanshoe.util.BaseResponse
 import com.himanshoe.util.SuccessResponse

@@ -1,6 +1,5 @@
 package com.himanshoe.di
 
-import com.himanshoe.base.provider.exception.ExceptionProvider
 import com.himanshoe.base.provider.repository.RepositoryProvider
 import com.himanshoe.base.provider.repository.RepositoryProviderImpl
 import com.himanshoe.feature.url.repository.UrlRepository

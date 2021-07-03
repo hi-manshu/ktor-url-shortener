@@ -31,8 +31,6 @@ fun Application.urlRoutes(domainLocator: DomainLocator, exceptionProvider: Excep
             }
         }
 
-
-
         get<ShortUrlLocation> { request ->
             val shortUrl = request.url
             val response = domainLocator.provideDomainProvider().provideFindShortUrlUseCase().invoke(shortUrl)

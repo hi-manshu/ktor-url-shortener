@@ -1,16 +1,16 @@
 package com.himanshoe
 
-import io.ktor.routing.*
+import com.example.plugins.*
+import io.ktor.application.*
+import io.ktor.features.*
+import io.ktor.gson.*
 import io.ktor.http.*
 import io.ktor.locations.*
-import io.ktor.gson.*
-import io.ktor.features.*
-import io.ktor.application.*
-import io.ktor.response.*
 import io.ktor.request.*
-import com.example.plugins.*
-import kotlin.test.*
+import io.ktor.response.*
+import io.ktor.routing.*
 import io.ktor.server.testing.*
+import kotlin.test.*
 
 class ApplicationTest {
     @Test

@@ -14,4 +14,3 @@ class FormUrlLocation
 @KtorExperimentalLocationsAPI
 @Location(UrlEntity.SHORT_URL)
 data class ShortUrlLocation(val url: String)
-

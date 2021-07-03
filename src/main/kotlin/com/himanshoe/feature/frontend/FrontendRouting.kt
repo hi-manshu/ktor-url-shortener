@@ -11,7 +11,6 @@ fun Application.frontendRouting(domainLocator: DomainLocator, provideExceptionPr
 
     routing {
         landingPage()
-        responsePage(domainLocator,provideExceptionProvider)
+        responsePage(domainLocator, provideExceptionProvider)
     }
-
 }

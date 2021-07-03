@@ -13,7 +13,6 @@ fun Application.configureStatusPages() {
         exception<SomethingWentWrongException> { cause ->
             call.respond(ExceptionResponse(HttpStatusCode.InternalServerError, cause.message.toString()))
         }
-
     }
 }
 

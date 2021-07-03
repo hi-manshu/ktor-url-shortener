@@ -1,7 +1,5 @@
 package com.himanshoe.feature.url.service
 
-import com.himanshoe.util.BaseResponse
-
 interface UrlService {
 
     suspend fun createShortUrl(url: String): String?

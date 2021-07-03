@@ -5,7 +5,7 @@ import com.himanshoe.base.provider.exception.ExceptionProviderImpl
 
 object ExceptionLocator {
 
-    fun provideExceptionProvider():ExceptionProvider{
+    fun provideExceptionProvider(): ExceptionProvider {
         return ExceptionProviderImpl()
     }
 }

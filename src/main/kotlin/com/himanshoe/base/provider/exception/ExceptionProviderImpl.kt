@@ -16,5 +16,4 @@ class ExceptionProviderImpl : ExceptionProvider {
     override fun respondWithSomethingWentWrongException(): Exception {
         return SomethingWentWrongException()
     }
-
 }
