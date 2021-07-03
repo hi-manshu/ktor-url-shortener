@@ -9,6 +9,7 @@ import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.locations.*
 import io.ktor.locations.post
+import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 
@@ -29,6 +30,8 @@ fun Application.urlRoutes(domainLocator: DomainLocator, exceptionProvider: Excep
                 )
             }
         }
+
+
 
         get<ShortUrlLocation> { request ->
             val shortUrl = request.url
