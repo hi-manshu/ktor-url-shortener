@@ -9,7 +9,6 @@ fun Application.landingPage() {
 
     routing {
         get("/") {
-            val name = "Ktor"
             call.respondHtml {
                 head {
                     title {
