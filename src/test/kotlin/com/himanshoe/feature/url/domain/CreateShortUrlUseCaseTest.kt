@@ -9,14 +9,12 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import io.ktor.http.*
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 
-class CreateShortUrlUseCaseTest{
+class CreateShortUrlUseCaseTest {
     @get:Rule
     var coroutineRule = MainCoroutineRule()
 
@@ -30,12 +28,12 @@ class CreateShortUrlUseCaseTest{
     }
 
     @Test
-    fun `should create short url successfully`(){
+    fun `should create short url successfully`() {
         return coroutineRule.runBlockingTest {
             // Given
             `given a long url should create short url successfully`()
             // When
-            val input  = "https://www.google.com"
+            val input = "https://www.google.com"
             // Then
             verify(mockUrlRepository).createShortUrl(input)
         }

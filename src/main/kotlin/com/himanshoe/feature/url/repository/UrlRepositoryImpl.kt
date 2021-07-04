@@ -21,4 +21,9 @@ class UrlRepositoryImpl(private val urlService: UrlService) :
     override suspend fun findOriginalUrl(shortUrl: String): String? {
         return urlService.findOriginalUrl(shortUrl)
     }
+
+    override suspend fun getTotalCount(shortUrl: String): BaseResponse<Any> {
+        val count = urlService.getTotalCount(shortUrl)
+        return SuccessResponse(HttpStatusCode.OK, count)
+    }
 }

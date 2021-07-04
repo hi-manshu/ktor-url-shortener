@@ -3,6 +3,7 @@ package com.himanshoe.base.provider.domain
 import com.himanshoe.base.provider.repository.RepositoryProvider
 import com.himanshoe.feature.url.domain.CreateShortUrlUseCase
 import com.himanshoe.feature.url.domain.FindShortUrlUseCase
+import com.himanshoe.feature.url.domain.FindUrlHitCountUseCase
 
 class DomainProviderImpl(private val repositoryProvider: RepositoryProvider) : DomainProvider {
 
@@ -12,5 +13,8 @@ class DomainProviderImpl(private val repositoryProvider: RepositoryProvider) : D
 
     override fun provideFindShortUrlUseCase(): FindShortUrlUseCase {
         return FindShortUrlUseCase(repositoryProvider.provideUrlRepository())
+    }
+    override fun provideFindUrlHitCountUseCase(): FindUrlHitCountUseCase {
+        return FindUrlHitCountUseCase(repositoryProvider.provideUrlRepository())
     }
 }

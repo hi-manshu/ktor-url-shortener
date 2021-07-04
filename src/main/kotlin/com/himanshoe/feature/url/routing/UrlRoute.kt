@@ -41,5 +41,11 @@ fun Application.urlRoutes(domainLocator: DomainLocator, exceptionProvider: Excep
                 )
             }
         }
+        get<UrlCount> { request ->
+            val shortUrl = request.url
+            println(shortUrl)
+            val response = domainLocator.provideDomainProvider().provideFindUrlHitCountUseCase().invoke(shortUrl)
+            call.respond(response)
+        }
     }
 }

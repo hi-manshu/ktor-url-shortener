@@ -38,6 +38,11 @@ class UrlServiceImpl(private val urlCollection: CoroutineCollection<UrlEntity>) 
         return findShortUrl(url) != null
     }
 
+    override suspend fun getTotalCount(url: String): Int {
+        val urlEntity = urlCollection.findOne(UrlEntity::shortUrl eq url)
+        return urlEntity?.urlHitCount ?: 0
+    }
+
     private suspend fun updateCount(urlEntity: UrlEntity?) {
         urlEntity?.let { entity ->
             val count = entity.urlHitCount.plus(1)

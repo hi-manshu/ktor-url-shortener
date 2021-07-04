@@ -9,4 +9,6 @@ interface UrlService {
     suspend fun findOriginalUrl(url: String): String?
 
     suspend fun checkIfUrlIsPresent(url: String): Boolean
+
+    suspend fun getTotalCount(url: String): Int
 }
