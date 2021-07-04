@@ -42,6 +42,8 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("io.ktor:ktor-html-builder:$ktor_version")
     testImplementation("io.ktor:ktor-server-tests:$ktor_version")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3")
+    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
 }
 kotlin.sourceSets["main"].kotlin.srcDirs("src/main")
 kotlin.sourceSets["test"].kotlin.srcDirs("src/test")

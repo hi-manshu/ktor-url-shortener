@@ -1,6 +1,6 @@
 package com.himanshoe
 
-import com.example.plugins.*
+import com.himanshoe.base.configureRouting
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.gson.*
@@ -10,7 +10,8 @@ import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.testing.*
-import kotlin.test.*
+import junit.framework.Assert.assertEquals
+import org.junit.Test
 
 class ApplicationTest {
     @Test
