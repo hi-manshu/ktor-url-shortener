@@ -1,9 +1,11 @@
 package com.himanshoe.feature.url.service
 
+import com.himanshoe.NotFoundException
 import com.himanshoe.feature.url.entity.UrlEntity
 import com.himanshoe.util.generateRandomUrl
 import org.litote.kmongo.coroutine.CoroutineCollection
 import org.litote.kmongo.eq
+import java.lang.Exception
 import java.util.*
 
 class UrlServiceImpl(private val urlCollection: CoroutineCollection<UrlEntity>) : UrlService {
@@ -38,9 +40,9 @@ class UrlServiceImpl(private val urlCollection: CoroutineCollection<UrlEntity>) 
         return findShortUrl(url) != null
     }
 
-    override suspend fun getTotalCount(url: String): Int {
+    override suspend fun getTotalCount(url: String): Int? {
         val urlEntity = urlCollection.findOne(UrlEntity::shortUrl eq url)
-        return urlEntity?.urlHitCount ?: 0
+        return urlEntity?.urlHitCount
     }
 
     private suspend fun updateCount(urlEntity: UrlEntity?) {

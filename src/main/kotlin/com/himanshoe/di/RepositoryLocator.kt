@@ -9,7 +9,7 @@ import com.himanshoe.feature.url.service.UrlService
 object RepositoryLocator {
 
     fun provideAUrlRepository(urlService: UrlService): UrlRepository {
-        return UrlRepositoryImpl(urlService)
+        return UrlRepositoryImpl(urlService,ExceptionLocator.provideExceptionProvider())
     }
 
     fun provideRepositoryProvider(): RepositoryProvider {
