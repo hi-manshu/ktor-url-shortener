@@ -1,4 +1,5 @@
 ### Ktor URL Shortner
+[![Twitter](https://img.shields.io/badge/Follow-Twitter-1DA1F2.svg)](https://twitter.com/hi_man_shoe)
 
 This project is a implementation for creating Short URL using Ktor + Kotlin + MongoDB
 
