@@ -46,3 +46,9 @@ It also has a frontend module built using `kotlin.html` and you can find it in `
 * Make sure MongoDB is installed.
 * Start the MongoDB 
 * Play around with the project.
+
+### To read more about it
+[System Design: Build URL Shortening Service using Ktor (Part-1)](https://himanshoe.com/build-url-shortening-service-using-ktor-part-1)
+[System Design: Build URL Shortening Service using Ktor (Part-2)](https://himanshoe.com/build-url-shortening-service-using-ktor-part-2)
+[System Design: Build URL Shortening Service using Ktor (Part-3)](https://himanshoe.com/build-url-shortening-service-using-ktor-part-3)
+[System Design: Build URL Shortening Service using Ktor (Part-4)](https://himanshoe.com/building-url-shortening-service-frontend)
